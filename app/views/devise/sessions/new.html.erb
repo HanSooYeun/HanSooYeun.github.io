@@ -1,0 +1,71 @@
+<DOCTYPE!>
+<html>
+<head>
+</head>
+<style>
+ 
+body{
+  background-image: url('http://cfile229.uf.daum.net/image/2531414C50FE4D2B32A17A');
+}
+h1{
+  font-size: 40px;
+  padding-left: 40px;
+   color: BLACK;
+    text-shadow:
+    -1px -1px 0 #000,
+    1px -1px 0 #000,
+    -1px 1px 0 #000,
+    1px 1px 0 #000; 
+}
+h2{
+  font-size:45px;
+}
+label{
+  font-size:30px;
+  font-family: JOYSTICK;
+}
+a{
+  font-size:25px;
+}
+input{
+  font-size: 30px;
+}
+.big{
+  text-align: center;
+  padding-top: 100px;
+}
+
+</style>
+<body>
+
+<h1>Login page</h1>
+<div class=big>
+<h2>중고 거래 서비스</h2>
+
+<%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+  <div class="field">
+    <%= f.label :email %><br />
+    <%= f.email_field :email, autofocus: true %>
+  </div>
+
+  <div class="field">
+    <%= f.label :password %><br />
+    <%= f.password_field :password, autocomplete: "off" %>
+  </div>
+
+  <% if devise_mapping.rememberable? -%>
+    <div class="field">
+      <%= f.check_box :remember_me %>
+      <%= f.label :remember_me %>
+    </div>
+  <% end -%>
+
+  <div class="actions">
+    <%= f.submit "Log in" %>
+  </div>
+<% end %>
+
+<%= render "devise/shared/links" %>
+</div>
+</body>
+</html>
